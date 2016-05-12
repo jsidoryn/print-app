@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :quotes
-  resources :specifications
-  resources :jobs
+
+  resources :jobs do
+    resources :specifications, shallow: true do
+      resources :quotes, shallow: true
+    end
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
