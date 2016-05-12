@@ -1,3 +1,8 @@
+## To do
+
+
+## Migrations
+
 rails g resource Job name job_number description:text state
 
 rails g resource Specification title description:text quote_due job_due \
