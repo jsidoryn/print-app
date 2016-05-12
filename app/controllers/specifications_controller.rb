@@ -13,6 +13,7 @@ class SpecificationsController < ApplicationController
   def create
     @specification = @job.specifications.new(specification_params)
     if @specification.save
+      flash[:notice] = "You have successfully added a new spec."
       redirect_to job_specifications_path(@job)
     else
       render :new
@@ -23,6 +24,7 @@ class SpecificationsController < ApplicationController
     @specification = Specification.find(params[:id])
     @job = @specification.job
     @specification.destroy
+    flash[:notice] = "You have successfully deleted a spec."
     redirect_to job_specifications_path(@job)
   end
 

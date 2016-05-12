@@ -14,6 +14,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     if @job.save
+      flash[:notice] = "You have successfully added a new job."
       redirect_to jobs_path
     else
       render :new
@@ -23,6 +24,7 @@ class JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
+    flash[:notice] = "You have successfully deleted the job"
     redirect_to jobs_path
   end
 
