@@ -1,7 +1,8 @@
 <h1>List all jobs</h1>
 
 <% @jobs.each do |job| %>
-  <%= link_to job.title, job_path(job) %> <%= link_to "Delete", job_path(job), method: :delete %><br>
+  <%= link_to job.title, job_specifications_path(job) %>
+  <%= link_to "Delete", job_path(job), method: :delete, data: { confirm: "Are you sure" } %><br>
 <% end %>
 
 <p>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root 'jobs#index'
   resources :jobs do
     resources :specifications, shallow: true do
       resources :quotes, shallow: true

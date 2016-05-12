@@ -1,0 +1,17 @@
+<h1><%= @job.title %> (<%= @job.job_number %>)</h1>
+
+<p>
+  <%= @job.description %>
+</p>
+
+
+<h2>Specifictions</h2>
+
+<% @specifications.each do |spec| %>
+  <%= spec.title %><%= link_to "Delete", specification_path(spec), method: :delete, data: { confirm: "Are you sure?" } %><br>
+<% end %>
+
+<p>
+  <%= link_to "Add a new spec", new_job_specification_path(@job) %> |
+  <%= link_to "Back", jobs_path %>
+</p>
