@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512025119) do
+ActiveRecord::Schema.define(version: 20160512032711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,4 +25,20 @@ ActiveRecord::Schema.define(version: 20160512025119) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "specifications", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "quote_due"
+    t.string   "job_due"
+    t.boolean  "proof_required"
+    t.boolean  "press_check_required"
+    t.text     "notes"
+    t.integer  "job_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "specifications", ["job_id"], name: "index_specifications_on_job_id", using: :btree
+
+  add_foreign_key "specifications", "jobs"
 end
