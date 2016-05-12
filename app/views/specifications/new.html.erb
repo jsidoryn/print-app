@@ -7,8 +7,12 @@
   <%- end -%>
     <%= f.input :title %>
     <%= f.input :description %>
+    <%= f.input :proof_required %>
+    <%= f.input :press_check_required %>
+    <%= f.input :notes %>
   </div>
   <div class="actions">
     <%= f.button :button, "Submit", class: "button" -%>
+    <%= link_to "Cancel", job_specifications_path(@job) %>
   </div>
 <% end %>

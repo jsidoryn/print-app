@@ -1,0 +1,14 @@
+<h1><%= @job.title %> (<%= @job.job_number %>)</h1>
+
+<p>
+  <%= @job.description %>
+</p>
+
+
+<h2>Specifictions</h2>
+
+<h3><%= @specification.title %></h3>
+
+<% @specifications.each do |spec| %>
+  <h4><%= spec.title %></h4>
+<% end %>

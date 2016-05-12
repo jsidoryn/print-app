@@ -7,14 +7,19 @@
 
 <h2>Specifictions</h2>
 
-<table class="table table__flush table__bordered">
   <% @specifications.each do |spec| %>
-    <tr>
-      <td><%= spec.title %> </td>
-      <td><%= link_to "Delete", specification_path(spec), method: :delete, data: { confirm: "Are you sure?" } %></td>
-    </tr>
+      <h4><%= spec.title %> (<%= link_to "Delete", specification_path(spec), method: :delete, data: { confirm: "Are you sure?" } %>)</h4>
+      <% spec.quotes.each do |quote| %>
+      <b>From printer xxx</b>
+        <table class="table table__flush table__bordered">
+          <tr>
+            <td><%= quote.line_item_1  %></td>
+            <td>$<%= quote.cost_1 %></td>
+          </tr>
+        </table>
+        <p><%#= link_to "Add quote", new_specification_quote_path %></p>
+    <% end %>
   <% end %>
-</table>
 
 <p>
   <%= link_to "Add a new spec", new_job_specification_path(@job), class: "button" %>
