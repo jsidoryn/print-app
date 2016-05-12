@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512032711) do
+ActiveRecord::Schema.define(version: 20160512051219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,25 @@ ActiveRecord::Schema.define(version: 20160512032711) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "quotes", force: :cascade do |t|
+    t.string   "line_item_1"
+    t.string   "cost_1"
+    t.string   "line_item_2"
+    t.string   "cost_2"
+    t.string   "line_item_3"
+    t.string   "cost_3"
+    t.string   "line_item_4"
+    t.string   "cost_4"
+    t.string   "line_item_5"
+    t.string   "cost_5"
+    t.text     "notes"
+    t.integer  "specification_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "quotes", ["specification_id"], name: "index_quotes_on_specification_id", using: :btree
 
   create_table "specifications", force: :cascade do |t|
     t.string   "title"
@@ -40,5 +59,6 @@ ActiveRecord::Schema.define(version: 20160512032711) do
 
   add_index "specifications", ["job_id"], name: "index_specifications_on_job_id", using: :btree
 
+  add_foreign_key "quotes", "specifications"
   add_foreign_key "specifications", "jobs"
 end
