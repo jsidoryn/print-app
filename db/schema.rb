@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160513002356) do
+ActiveRecord::Schema.define(version: 20160513005433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,20 +27,23 @@ ActiveRecord::Schema.define(version: 20160513002356) do
 
   create_table "quotes", force: :cascade do |t|
     t.string   "line_item_1"
-    t.string   "cost_1"
     t.string   "line_item_2"
-    t.string   "cost_2"
     t.string   "line_item_3"
-    t.string   "cost_3"
     t.string   "line_item_4"
     t.string   "cost_4"
     t.string   "line_item_5"
     t.string   "cost_5"
     t.text     "notes"
     t.integer  "specification_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "printer_name"
+    t.integer  "cost_1_cents"
+    t.string   "cost_1_currency",  default: "AUD", null: false
+    t.integer  "cost_2_cents"
+    t.string   "cost_2_currency",  default: "AUD", null: false
+    t.integer  "cost_3_cents"
+    t.string   "cost_3_currency",  default: "AUD", null: false
   end
 
   add_index "quotes", ["specification_id"], name: "index_quotes_on_specification_id", using: :btree

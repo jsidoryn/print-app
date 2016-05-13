@@ -28,6 +28,8 @@ gem 'compass-rails'
 gem 'htmlentities'
 gem 'simple_form'
 
+gem 'money-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

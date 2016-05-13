@@ -24,18 +24,18 @@
           </tr>
           <tr>
             <td><%= quote.line_item_1  %></td>
-            <td>$<%= quote.cost_1 %></td>
+            <td><%= quote.cost_1_cents %></td>
           </tr>
           <% unless quote.line_item_2.blank? %>
             <tr>
               <td><%= quote.line_item_2  %></td>
-              <td>$<%= quote.cost_2 %></td>
+              <td><%= humanized_money_with_symbol quote.cost_2_cents %></td>
             </tr>
           <% end %>
           <% unless quote.line_item_3.blank? %>
             <tr>
               <td><%= quote.line_item_3  %></td>
-              <td>$<%= quote.cost_3 %></td>
+              <td><%= humanized_money_with_symbol quote.cost_3_cents %></td>
             </tr>
           <% end %>
         <% end %>

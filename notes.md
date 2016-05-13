@@ -1,6 +1,9 @@
 ## To do
 
+Money: cents not displaying
 Jobs: create edit
+Spec: create edit
+Quote: create edit
 
 ## Migrations
 
@@ -13,3 +16,7 @@ rails g resource Quote line_item_1 cost_1 line_item_2 cost_2 line_item_3 cost_3 
 line_item_4 cost_4 line_item_5 cost_5 notes:text specification:references
 
 rails g migration AddPrinterNameToQuote printer_name:string
+
+## Notes
+
+Good explanation of using money gem here: http://ecommerceonrails.com/page2/
