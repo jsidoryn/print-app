@@ -11,3 +11,11 @@
 //= require components/embed
 //= require components/menu-with-more
 //= require components/enhanced-form
+
+//= require pickadate/picker
+//= require pickadate/picker.date
+//= require pickadate/picker.time
+
+$(function() {
+  $('#specification_job_due').pickadate()
+});

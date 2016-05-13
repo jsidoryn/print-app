@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'compass-rails'
 gem 'htmlentities'
 gem 'simple_form'
+gem 'pickadate-rails'
 
 gem 'money-rails'
 
