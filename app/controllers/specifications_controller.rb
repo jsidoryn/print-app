@@ -3,7 +3,7 @@ class SpecificationsController < ApplicationController
   before_filter :find_job, only: [:index, :new, :create]
 
   def index
-    @specifications = @job.specifications
+    @specifications = @job.specifications.includes(:quotes)
   end
 
   def new

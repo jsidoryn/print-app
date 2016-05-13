@@ -1,0 +1,20 @@
+<h1>Create a new quote</h1>
+
+<%= simple_form_for([@specification, @quote]) do |f| %>
+<div class="inputs">
+  <%- unless f.error_notification.blank? -%>
+    <%= f.error_notification %>
+  <%- end -%>
+    <%= f.input :line_item_1 %>
+    <%= f.input :cost_1 %>
+    <%= f.input :line_item_2 %>
+    <%= f.input :cost_2 %>
+    <%= f.input :line_item_3 %>
+    <%= f.input :cost_3 %>
+    <%= f.input :notes %>
+  </div>
+  <div class="actions">
+    <%= f.button :button, "Submit", class: "button" -%>
+    <%#= link_to "Cancel", specification_quotes_path(@job) %>
+  </div>
+<% end %>

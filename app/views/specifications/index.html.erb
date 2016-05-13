@@ -1,23 +1,45 @@
 <h1><%= @job.title %> (<%= @job.job_number %>)</h1>
 
-<p>
-  <%= @job.description %>
-</p>
-
+<p><%= @job.description %></p>
 
 <h2>Specifictions</h2>
 
   <% @specifications.each do |spec| %>
-      <h4><%= spec.title %> (<%= link_to "Delete", specification_path(spec), method: :delete, data: { confirm: "Are you sure?" } %>)</h4>
-      <% spec.quotes.each do |quote| %>
-      <b>From printer xxx</b>
-        <table class="table table__flush table__bordered">
+    <h4><%= spec.title %>
+      (<%= link_to "Delete", specification_path(spec), method: :delete, data: { confirm: "Are you sure?" } %> |
+      <%= link_to "Add a quote", new_specification_quote_path(spec) %>)
+    </h4>
+    <% if spec.quotes.empty? %>
+      <p>No quotes yet!</p>
+    <% else %>
+      <table class="table table__flush table__bordered">
+        <% spec.quotes.each do |quote| %>
+          <tr>
+            <td>
+              <b><br>From printer xxx
+              <%= link_to "(Delete)", quote_path(quote), method: :delete,
+              data: { confirm: "Are you sure?"} %></b>
+            </td>
+            <td></td>
+          </tr>
           <tr>
             <td><%= quote.line_item_1  %></td>
             <td>$<%= quote.cost_1 %></td>
           </tr>
-        </table>
-        <p><%#= link_to "Add quote", new_specification_quote_path %></p>
+          <% unless quote.line_item_2.blank? %>
+            <tr>
+              <td><%= quote.line_item_2  %></td>
+              <td>$<%= quote.cost_2 %></td>
+            </tr>
+          <% end %>
+          <% unless quote.line_item_3.blank? %>
+            <tr>
+              <td><%= quote.line_item_3  %></td>
+              <td>$<%= quote.cost_3 %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
     <% end %>
   <% end %>
 
