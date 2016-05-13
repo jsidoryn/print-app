@@ -32,7 +32,7 @@ class QuotesController < ApplicationController
 
     def quote_params
       params.require(:quote).permit(:line_item_1, :cost_1, :line_item_2, :cost_2,
-      :line_item_3, :cost_3, :notes)
+      :line_item_3, :cost_3, :notes, :printer_name)
     end
 
 end

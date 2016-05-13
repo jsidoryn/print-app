@@ -16,7 +16,7 @@
         <% spec.quotes.each do |quote| %>
           <tr>
             <td>
-              <b><br>From printer xxx
+              <b><br><%= quote.printer_name %>
               <%= link_to "(Delete)", quote_path(quote), method: :delete,
               data: { confirm: "Are you sure?"} %></b>
             </td>

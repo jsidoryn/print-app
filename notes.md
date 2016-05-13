@@ -12,11 +12,4 @@ proof_required:boolean press_check_required:boolean notes:text job:references
 rails g resource Quote line_item_1 cost_1 line_item_2 cost_2 line_item_3 cost_3 \
 line_item_4 cost_4 line_item_5 cost_5 notes:text specification:references
 
-<table class="table table__flush table__bordered">
-  <% @specifications.each do |spec| %>
-    <tr>
-      <td><%= spec.title %> </td>
-      <td><%= link_to "Delete", specification_path(spec), method: :delete, data: { confirm: "Are you sure?" } %></td>
-    </tr>
-  <% end %>
-</table>
+rails g migration AddPrinterNameToQuote printer_name:string

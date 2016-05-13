@@ -5,6 +5,7 @@
   <%- unless f.error_notification.blank? -%>
     <%= f.error_notification %>
   <%- end -%>
+    <%= f.input :printer_name %>
     <%= f.input :line_item_1 %>
     <%= f.input :cost_1 %>
     <%= f.input :line_item_2 %>
