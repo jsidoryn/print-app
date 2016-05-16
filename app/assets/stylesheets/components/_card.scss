@@ -1,7 +1,11 @@
 .card {
   background: $white;
   @include border-radius($border-radius);
+  border: 1px solid $grey;
   overflow: hidden;
+  width: 25%;
+  float: left;
+  margin: 0 $tiny-gutter $tiny-gutter 0;
 }
 
 a.card {

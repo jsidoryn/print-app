@@ -5,6 +5,10 @@ class QuotesController < ApplicationController
     @job = @specification.job
   end
 
+  def show
+    @quote = Quote.find(params[:id])
+  end
+
   def new
     @specification = Specification.find(params[:specification_id])
     @quote = @specification.quotes.new

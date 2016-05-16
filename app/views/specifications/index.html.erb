@@ -16,34 +16,21 @@
     <% if spec.quotes.empty? %>
       <p>No quotes yet!</p>
     <% else %>
-      <table class="table table__flush table__bordered">
+      <div class="cards clearfix">
         <% spec.quotes.each do |quote| %>
-          <tr>
-            <td>
-              <b><br><%= quote.printer_name %>
-              <%= link_to "(Delete)", quote_path(quote), method: :delete,
-              data: { confirm: "Are you sure?"} %></b>
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><%= quote.line_item_1  %></td>
-            <td><%= quote.cost_1_cents %></td>
-          </tr>
-          <% unless quote.line_item_2.blank? %>
-            <tr>
-              <td><%= quote.line_item_2  %></td>
-              <td><%= humanized_money_with_symbol quote.cost_2_cents %></td>
-            </tr>
-          <% end %>
-          <% unless quote.line_item_3.blank? %>
-            <tr>
-              <td><%= quote.line_item_3  %></td>
-              <td><%= humanized_money_with_symbol quote.cost_3_cents %></td>
-            </tr>
-          <% end %>
+        <%= link_to quote_path(quote), class: "card" do %>
+              <div class="card--content compressed">
+              <h2><%= humanized_money_with_symbol quote.total %></h2>
+              <p><strong class="nested-link--target"><%= quote.printer_name %></strong></p>
+            </div>
+            <div class="card--footer compressed">
+              <p><small class="type--grey">New conversation</small></p>
+            </div>
+          </a>
         <% end %>
-      </table>
+
+        <% end %>
+      </div>
     <% end %>
   <% end %>
 

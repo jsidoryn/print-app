@@ -1,0 +1,26 @@
+<h1><%= @quote.printer_name %> quote for <%= @quote.specification.title %></h1>
+<p>
+  <%= link_to "(Delete)", quote_path(@quote), method: :delete,
+  data: { confirm: "Are you sure?"} %>
+</p>
+
+<table class="table table__flush table__bordered">
+  <tr>
+    <td><%= @quote.line_item_1  %></td>
+    <td><%= @quote.cost_1_cents %></td>
+  </tr>
+  <% unless @quote.line_item_2.blank? %>
+    <tr>
+      <td><%= @quote.line_item_2  %></td>
+      <td><%= humanized_money_with_symbol @quote.cost_2_cents %></td>
+    </tr>
+  <% end %>
+  <% unless @quote.line_item_3.blank? %>
+    <tr>
+      <td><%= @quote.line_item_3  %></td>
+      <td><%= humanized_money_with_symbol @quote.cost_3_cents %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Back", job_specifications_path(@quote.specification.job) %>

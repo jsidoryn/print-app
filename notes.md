@@ -3,6 +3,10 @@
 Money: cents not displaying
 Pickadate: field showing as grey/disabled
 
+Quotes total method: how to sum with range?
+
+Fit 4 cards in properly + add break points
+
 Jobs: create edit
 Spec: create edit
 Quote: create edit
