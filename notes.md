@@ -1,15 +1,19 @@
-## To do
+## Questions / help
 
 Money: cents not displaying
 Pickadate: field showing as grey/disabled
 
 Quotes total method: how to sum with range?
 
+Git issues - only ssh
+
+## To do
+
+Quote: edit a quote
+
 Fit 4 cards in properly + add break points
 
-Jobs: create edit
-Spec: create edit
-Quote: create edit
+
 
 ## Migrations
 
