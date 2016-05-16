@@ -1,5 +1,9 @@
 ## Questions / help
 
+Get navicat setup
+Borrow the rails testing book
+Ask advice on next thing for testing
+
 Money: cents not displaying
 Pickadate: field showing as grey/disabled
 

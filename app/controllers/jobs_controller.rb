@@ -13,6 +13,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
+    @job.printer_quotes_open!
     if @job.save
       flash[:notice] = "You have successfully added a new job."
       redirect_to jobs_path
@@ -40,6 +41,12 @@ class JobsController < ApplicationController
     @job.destroy
     flash[:notice] = "You have successfully deleted the job"
     redirect_to jobs_path
+  end
+
+  def close_printer_quotes
+    find_job
+    @job.printer_quotes_closed!
+    redirect_to job_specifications_path(@job)
   end
 
   private

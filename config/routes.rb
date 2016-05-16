@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :specifications, shallow: true do
       resources :quotes, shallow: true
     end
+    get "close_printer_quotes", on: :member
   end
 
 

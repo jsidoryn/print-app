@@ -1,14 +1,18 @@
 <h1><%= @job.title %> (<%= @job.job_number %>)</h1>
 
 <p><%= @job.description %></p>
+<p>State: <%= @job.state.humanize %> <%= link_to "Close printer quotes", close_printer_quotes_job_path(@job) %></p>
 
 <h2>Specifictions</h2>
 
   <% @specifications.each do |spec| %>
     <h4><%= spec.title %>
-      (<%= link_to "Edit", edit_specification_path(spec) %> | 
-      <%= link_to "Delete", specification_path(spec), method: :delete, data: { confirm: "Are you sure?" } %> |
-      <%= link_to "Add a quote", new_specification_quote_path(spec) %>)
+      (<%= link_to "Edit", edit_specification_path(spec) %> |
+      <%= link_to "Delete", specification_path(spec), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% if @job.printer_quotes_open? %>
+        | <%= link_to "Add a quote", new_specification_quote_path(spec) %>
+      <% end %>
+      )
     </h4>
     <p>
       Job due: <%= spec.job_due %><br>
