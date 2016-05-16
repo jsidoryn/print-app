@@ -6,7 +6,8 @@
 
   <% @specifications.each do |spec| %>
     <h4><%= spec.title %>
-      (<%= link_to "Delete", specification_path(spec), method: :delete, data: { confirm: "Are you sure?" } %> |
+      (<%= link_to "Edit", edit_specification_path(spec) %> | 
+      <%= link_to "Delete", specification_path(spec), method: :delete, data: { confirm: "Are you sure?" } %> |
       <%= link_to "Add a quote", new_specification_quote_path(spec) %>)
     </h4>
     <p>
