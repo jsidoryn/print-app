@@ -20,6 +20,22 @@ class SpecificationsController < ApplicationController
     end
   end
 
+  def edit
+    @specification = Specification.find(params[:id])
+    @job = @specification.job
+  end
+
+  def update
+    @specification = Specification.find(params[:id])
+    if @specification.update(specification_params)
+      flash[:notice] = "You have successfully edited a spec."
+      redirect_to job_specifications_path(@specification.job)
+    else
+      render :edit
+    end
+
+  end
+
   def destroy
     @specification = Specification.find(params[:id])
     @job = @specification.job
