@@ -1,19 +1,4 @@
 <h1>New Specification</h1>
 <%= simple_form_for([@job, @specification]) do |f| %>
-  <div class="inputs">
-    <%- unless f.error_notification.blank? -%>
-      <%= f.error_notification %>
-    <%- end -%>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :job_due %>
-    <%= f.input :quote_due %>
-    <%= f.input :proof_required %>
-    <%= f.input :press_check_required %>
-    <%= f.input :notes %>
-  </div>
-  <div class="actions">
-    <%= f.button :button, "Submit", class: "button" -%>
-    <%= link_to "Cancel", job_specifications_path(@job) %>
-  </div>
+  <%= render partial: 'form', locals: { f: f } %>
 <% end %>

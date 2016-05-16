@@ -1,13 +1,11 @@
-<%= simple_form_for @job do |f| %>
-  <div class="inputs">
-    <%- unless f.error_notification.blank? -%>
-      <%= f.error_notification %>
-    <%- end -%>
-    <%= f.input :title %>
-    <%= f.input :job_number %>
-    <%= f.input :description %>
-  </div>
-  <div class="actions">
-    <%= f.button :button, "Submit", class: "button" -%> <%= link_to "Cancel", jobs_path %>
-  </div>
-<% end %>
+<div class="inputs">
+  <%- unless f.error_notification.blank? -%>
+    <%= f.error_notification %>
+  <%- end -%>
+  <%= f.input :title %>
+  <%= f.input :job_number %>
+  <%= f.input :description %>
+</div>
+<div class="actions">
+  <%= f.button :button, "Submit", class: "button" -%> <%= link_to "Cancel", jobs_path %>
+</div>

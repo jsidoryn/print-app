@@ -1,5 +1,6 @@
 ## Questions / help
 
+Form partial within simple_form block
 Get navicat setup
 Borrow the rails testing book
 Ask advice on next thing for testing
