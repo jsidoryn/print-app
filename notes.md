@@ -1,6 +1,8 @@
 ## To do
 
 Money: cents not displaying
+Pickadate: field showing as grey/disabled
+
 Jobs: create edit
 Spec: create edit
 Quote: create edit

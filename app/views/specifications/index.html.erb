@@ -9,6 +9,10 @@
       (<%= link_to "Delete", specification_path(spec), method: :delete, data: { confirm: "Are you sure?" } %> |
       <%= link_to "Add a quote", new_specification_quote_path(spec) %>)
     </h4>
+    <p>
+      Job due: <%= spec.job_due %><br>
+      Quote due: <%= spec.quote_due %>
+    </p>
     <% if spec.quotes.empty? %>
       <p>No quotes yet!</p>
     <% else %>

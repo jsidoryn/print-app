@@ -36,7 +36,7 @@ class SpecificationsController < ApplicationController
 
     def specification_params
       params.require(:specification).permit(:title, :description, :proof_required,
-      :press_check_required, :notes, :job_due)
+      :press_check_required, :notes, :job_due, :quote_due)
     end
 
 end

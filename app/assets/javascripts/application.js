@@ -18,4 +18,5 @@
 
 $(function() {
   $('#specification_job_due').pickadate()
+  $('#specification_quote_due').pickadate()
 });
