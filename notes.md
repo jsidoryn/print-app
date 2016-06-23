@@ -1,6 +1,5 @@
 ## Questions / help
 
-Form partial within simple_form block
 Get navicat setup
 Borrow the rails testing book
 Ask advice on next thing for testing
@@ -10,15 +9,15 @@ Pickadate: field showing as grey/disabled
 
 Quotes total method: how to sum with range?
 
-Git issues - only ssh
-
 ## To do
 
 Quote: edit a quote
 
 Fit 4 cards in properly + add break points
 
+## Questions for Raz
 
+What text editor do you use? Thoughts about RubyMine?
 
 ## Migrations
 

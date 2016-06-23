@@ -7,7 +7,7 @@
 <table class="table table__flush table__bordered">
   <tr>
     <td><%= @quote.line_item_1  %></td>
-    <td><%= @quote.cost_1_cents %></td>
+    <td><%= humanized_money_with_symbol @quote.cost_1_cents %></td>
   </tr>
   <% unless @quote.line_item_2.blank? %>
     <tr>
