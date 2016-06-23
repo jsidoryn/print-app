@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     post :image, on: :collection
   end
   root 'jobs#index'
-  resources :jobs do
+  resources :jobs, except: :show do
     resources :specifications, shallow: true do
       resources :quotes, shallow: true
     end

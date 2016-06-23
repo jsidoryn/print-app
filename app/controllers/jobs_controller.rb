@@ -1,10 +1,9 @@
 class JobsController < ApplicationController
-  def index
-    @jobs = Job.all
-  end
 
-  def show
-    find_job
+  before_action :find_job, only: [:edit, :update, :destroy, :close_printer_quotes]
+
+  def index
+    @jobs = Job.all.order(:title)
   end
 
   def new
@@ -23,11 +22,9 @@ class JobsController < ApplicationController
   end
 
   def edit
-    find_job
   end
 
   def update
-    find_job
     if @job.update(job_params)
       flash[:notice] = "You have successfully edited a job."
       redirect_to jobs_path
@@ -37,7 +34,6 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    find_job
     @job.destroy
     flash[:notice] = "You have successfully deleted the job"
     redirect_to jobs_path
@@ -58,5 +54,4 @@ class JobsController < ApplicationController
     def job_params
       params.require(:job).permit(:title, :job_number, :description)
     end
-
 end

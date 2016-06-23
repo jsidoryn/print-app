@@ -7,20 +7,24 @@
 <table class="table table__flush table__bordered">
   <tr>
     <td><%= @quote.line_item_1  %></td>
-    <td><%= humanized_money_with_symbol @quote.cost_1_cents %></td>
+    <td><%= humanized_money_with_symbol @quote.cost_1 %></td>
   </tr>
   <% unless @quote.line_item_2.blank? %>
     <tr>
       <td><%= @quote.line_item_2  %></td>
-      <td><%= humanized_money_with_symbol @quote.cost_2_cents %></td>
+      <td><%= humanized_money_with_symbol @quote.cost_2 %></td>
     </tr>
   <% end %>
   <% unless @quote.line_item_3.blank? %>
     <tr>
       <td><%= @quote.line_item_3  %></td>
-      <td><%= humanized_money_with_symbol @quote.cost_3_cents %></td>
+      <td><%= humanized_money_with_symbol @quote.cost_3 %></td>
     </tr>
   <% end %>
+  <tr>
+    <td><b>Total</b></td>
+    <td><b><%= humanized_money_with_symbol @quote.total %></b></td>
+  </tr>
 </table>
 
 <%= link_to "Back", job_specifications_path(@quote.specification.job) %>

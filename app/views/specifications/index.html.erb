@@ -18,7 +18,14 @@
       Job due: <%= spec.job_due %><br>
       Quote due: <%= spec.quote_due %>
     </p>
-    <p><%= link_to "Add a quote",  new_specification_quote_path(spec) %></p>
+    <p>
+      Description: <%= spec.description %>
+    </p>
+    <p>
+      Proof required: <%= yes_or_no spec.proof_required %> <br>
+      Press check required: <%= yes_or_no spec.press_check_required %>
+    </p>
+    
     <% if spec.quotes.empty? %>
       <p>No quotes yet!</p>
     <% else %>
@@ -41,6 +48,6 @@
   <% end %>
 
 <p>
-  <%= link_to "Add a new spec", new_job_specification_path(@job), class: "button" %>
+  <%= link_to "Add a new specification", new_job_specification_path(@job), class: "button" %>
   <%= link_to "Back", jobs_path %>
 </p>

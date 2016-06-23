@@ -26,6 +26,8 @@ Approach to total? Should be separate joint table with line items i'm assuming b
 
 enum state formatting in model
 
+jobs_path vs jobs_url when redirecting?
+
 ## Migrations
 
 rails g resource Job name job_number description:text state

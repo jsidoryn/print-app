@@ -1,28 +1,42 @@
-== README
+= Print production app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Setup
 
-Things you may want to cover:
+Standard rails project without Koi. When you set up run rake db:seeds to bootstrap
+some base data
 
-* Ruby version
 
-* System dependencies
+== Overview
 
-* Configuration
+This application aims to make it easier for graphic designers to get print quotes
+from printers and to get sign off from their clients. This is currently a complex
+process that is mainly handled by email with printers providing quotes in a variety
+of formats. Finding an old job and ordering a reprint is also tricky.
 
-* Database creation
+The basic structure is as follows:
 
-* Database initialization
+=== Job
 
-* How to run the test suite
+A job is essentially a new project such as printing a brochure or some business
+cards.
 
-* Services (job queues, cache servers, search engines, etc.)
+=== Specification
 
-* Deployment instructions
+A job has one or more specifications which is essentially what the designer
+is asking the printer to quote on. An example is that a job for business cards
+could have a spec for printing in full colour and a spec for printing in black and
+white.
 
-* ...
+=== Quote
 
+A specification has none or many quotes. These are the printers response to the
+specification and details the associated costs and any notes.
+
+== Status
+
+Currently there are no users and just base models. You can add jobs, specs and quotes
+and there's some basic views associated with them. There's also the first attempt
+at adding state to a job using enum. 
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.

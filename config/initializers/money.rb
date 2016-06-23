@@ -74,4 +74,6 @@ config.default_currency = :aud
   #
   # Example:
   # config.raise_error_on_money_parsing = false
+
+  config.no_cents_if_whole = false
 end
