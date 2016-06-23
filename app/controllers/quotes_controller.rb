@@ -35,8 +35,8 @@ class QuotesController < ApplicationController
   private
 
     def quote_params
-      params.require(:quote).permit(:line_item_1, :cost_1_cents, :line_item_2, :cost_2_cents,
-      :line_item_3, :cost_3_cents, :notes, :printer_name)
+      params.require(:quote).permit(:line_item_1, :cost_1, :line_item_2, :cost_2,
+      :line_item_3, :cost_3, :notes, :printer_name)
     end
 
 end

@@ -19,6 +19,11 @@ Fit 4 cards in properly + add break points
 
 What text editor do you use? Thoughts about RubyMine?
 
+Approach to disconnecting from psql when dropping table -> config/initializers/postgresql_database_tasks.rb
+https://www.krautcomputing.com/blog/2014/01/10/how-to-drop-your-postgres-database-with-rails-4/
+
+Approach to total? Should be separate joint table with line items i'm assuming but for now?
+
 ## Migrations
 
 rails g resource Job name job_number description:text state

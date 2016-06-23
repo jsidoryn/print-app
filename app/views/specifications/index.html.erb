@@ -18,6 +18,7 @@
       Job due: <%= spec.job_due %><br>
       Quote due: <%= spec.quote_due %>
     </p>
+    <p><%= link_to "Add a quote",  new_specification_quote_path(spec) %></p>
     <% if spec.quotes.empty? %>
       <p>No quotes yet!</p>
     <% else %>
