@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20160513005433) do
     t.string   "title"
     t.string   "job_number"
     t.text     "description"
-    t.string   "state"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "state",       default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "quotes", force: :cascade do |t|

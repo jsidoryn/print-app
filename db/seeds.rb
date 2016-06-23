@@ -17,7 +17,7 @@ spec1 = job1.specifications.create!(title: "Print in full colour", description:
   "blah blah blah", press_check_required: true, job_due: Time.now)
 
 quote1 = spec1.quotes.create!(printer_name: "Finsbury", line_item_1: "Printer option 1",
-  cost_1_cents: 1000, line_item_2: "Printer option 2", cost_2_cents: 10000)
+  cost_1_cents: 1000, line_item_2: "Printer option 2", cost_2_cents: 10000, cost_3_cents: 1234)
 
 quote2 = spec1.quotes.create!(printer_name: "Graphic Print Group", line_item_1: "Printer option 1",
-  cost_1_cents: 500, line_item_2: "Printer option 2", cost_2_cents: 8000)
+  cost_1_cents: 500, line_item_2: "Printer option 2", cost_2_cents: 8000, cost_3_cents: 5678)

@@ -4,7 +4,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :name
       t.string :job_number
       t.text :description
-      t.string :state
+      t.integer :state, default: 0
 
       t.timestamps null: false
     end

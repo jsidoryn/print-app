@@ -24,6 +24,8 @@ https://www.krautcomputing.com/blog/2014/01/10/how-to-drop-your-postgres-databas
 
 Approach to total? Should be separate joint table with line items i'm assuming but for now?
 
+enum state formatting in model
+
 ## Migrations
 
 rails g resource Job name job_number description:text state

@@ -1,7 +1,7 @@
 <h1><%= @job.title %> (<%= @job.job_number %>)</h1>
 
 <p><%= @job.description %></p>
-<p>State: <%#= @job.state.humanize if state? %> <%= link_to "Close printer quotes", close_printer_quotes_job_path(@job) %></p>
+<p>State: <%= @job.state.humanize %> <%= link_to "Close printer quotes", close_printer_quotes_job_path(@job) %></p>
 
 <h2>Specifictions</h2>
 
