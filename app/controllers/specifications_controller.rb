@@ -1,7 +1,7 @@
 class SpecificationsController < ApplicationController
 
   before_action :find_job, only: [:index, :new, :create]
-  before_action :check_for_quotes, only: [:destroy]
+  # before_action :check_for_quotes, only: [:destroy]
 
   def index
     @specifications = @job.specifications.includes(:quotes)
@@ -40,6 +40,12 @@ class SpecificationsController < ApplicationController
   def destroy
     @specification = Specification.find(params[:id])
     @job = @specification.job
+    if @specification.has_quotes?
+      redirect_to job_specifications_path(@specification.job),
+      notice: "You can't delete the specification until you remove all quotes"
+      return
+    end
+
     @specification.destroy
     flash[:notice] = "You have successfully deleted a spec."
     redirect_to job_specifications_path(@job)
@@ -56,14 +62,14 @@ class SpecificationsController < ApplicationController
       :press_check_required, :notes, :job_due, :quote_due)
     end
 
-    def check_for_quotes
-      @specification = Specification.find(params[:id])
-      if @specification.quotes.empty?
-        true
-      else
-        false
-        redirect_to job_specifications_path(@specification.job),
-        notice: "You cant delete the specification until you remove all quotes"
-      end
-    end
+#     def check_for_quotes
+#       @specification = Specification.find(params[:id])
+#       if @specification.quotes.empty?
+#         true
+#       else
+#         false
+#         redirect_to job_specifications_path(@specification.job),
+#         notice: "You cant delete the specification until you remove all quotes"
+#       end
+#     end
 end
