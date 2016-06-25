@@ -62,14 +62,14 @@ class SpecificationsController < ApplicationController
       :press_check_required, :notes, :job_due, :quote_due)
     end
 
-#     def check_for_quotes
-#       @specification = Specification.find(params[:id])
-#       if @specification.quotes.empty?
-#         true
-#       else
-#         false
-#         redirect_to job_specifications_path(@specification.job),
-#         notice: "You cant delete the specification until you remove all quotes"
-#       end
-#     end
+    def check_for_quotes
+      @specification = Specification.find(params[:id])
+      if @specification.quotes.empty?
+        true
+      else
+        false
+        redirect_to job_specifications_path(@specification.job),
+        notice: "You cant delete the specification until you remove all quotes"
+      end
+    end
 end

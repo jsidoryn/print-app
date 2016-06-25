@@ -4,10 +4,6 @@ Get navicat setup
 Borrow the rails testing book
 Ask advice on next thing for testing
 
-Money: cents not displaying
-Pickadate: field showing as grey/disabled
-
-Quotes total method: how to sum with range?
 
 ## To do
 
@@ -17,16 +13,18 @@ Fit 4 cards in properly + add break points
 
 ## Questions for Raz
 
-What text editor do you use? Thoughts about RubyMine?
 
-Approach to disconnecting from psql when dropping table -> config/initializers/postgresql_database_tasks.rb
-https://www.krautcomputing.com/blog/2014/01/10/how-to-drop-your-postgres-database-with-rails-4/
+## Raz notes
 
-Approach to total? Should be separate joint table with line items i'm assuming but for now?
 
-enum state formatting in model
+Alternate way to run the loop. Use select to reduce the dataset before calling each
 
-jobs_path vs jobs_url when redirecting?
+<% (1..3).select{ |n| @quote.send("line_item_#{n}").present?}.each do |n| %>
+  <tr>
+    <td><%= @quote.send("line_item_#{n}") %></td>
+    <td><%= humanized_money_with_symbol @quote.send("cost_#{n}") %></td>
+  </tr>
+<% end %>
 
 ## Migrations
 

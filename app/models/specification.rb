@@ -4,6 +4,6 @@ class Specification < ActiveRecord::Base
   validates :title, presence: true
 
   def has_quotes?
-    true unless quotes.empty?
+    quotes.present?
   end
 end

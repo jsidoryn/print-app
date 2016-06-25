@@ -5,22 +5,12 @@
 </p>
 
 <table class="table table__flush table__bordered">
+  <% next if @quote.send("line_item_#{n}").blank? %>
   <tr>
-    <td><%= @quote.line_item_1  %></td>
-    <td><%= humanized_money_with_symbol @quote.cost_1 %></td>
+    <td><%= @quote.send("line_item_#{n}")  %></td>
+    <td><%= humanized_money_with_symbol @quote.send("cost_#{n}") %></td>
   </tr>
-  <% unless @quote.line_item_2.blank? %>
-    <tr>
-      <td><%= @quote.line_item_2  %></td>
-      <td><%= humanized_money_with_symbol @quote.cost_2 %></td>
-    </tr>
-  <% end %>
-  <% unless @quote.line_item_3.blank? %>
-    <tr>
-      <td><%= @quote.line_item_3  %></td>
-      <td><%= humanized_money_with_symbol @quote.cost_3 %></td>
-    </tr>
-  <% end %>
+
   <tr>
     <td><b>Total</b></td>
     <td><b><%= humanized_money_with_symbol @quote.total %></b></td>

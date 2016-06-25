@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   # get '/styleguide/:action' => 'styleguide'
   # get '/styleguide' => 'styleguide#index'
-  resources :uploads do
-    post :image, on: :collection
-  end
+  # resources :uploads do
+  #   post :image, on: :collection
+  # end
   root 'jobs#index'
   resources :jobs, except: :show do
     resources :specifications, shallow: true do
