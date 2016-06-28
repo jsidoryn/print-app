@@ -1,6 +1,7 @@
 <h1><%= @job.title %> (<%= @job.job_number %>)</h1>
 
 <p><%= @job.description %></p>
+<p>Client: <%= @job.organisations.take.title if @job.organisations %></p>
 <p>State: <%= @job.state.humanize %> <%= link_to "Close printer quotes", close_printer_quotes_job_path(@job) %></p>
 
 <h2>Specifictions</h2>
@@ -25,7 +26,7 @@
       Proof required: <%= yes_or_no spec.proof_required %> <br>
       Press check required: <%= yes_or_no spec.press_check_required %>
     </p>
-    
+
     <% if spec.quotes.empty? %>
       <p>No quotes yet!</p>
     <% else %>

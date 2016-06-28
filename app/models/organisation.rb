@@ -4,6 +4,8 @@ class Organisation < ActiveRecord::Base
 
   validates :title, :organisation_type, presence: true
 
+  scope :clients, -> { where(organisation_type: 3) }
+
   ORG_TYPES = [["Designer", 1], ["Printer", 2], ["Client", 3]]
 
   def designer?

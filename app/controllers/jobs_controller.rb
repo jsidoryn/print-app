@@ -14,7 +14,8 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
-    #@job.organisation = current_organisation
+    @organisation = Organisation.find(params[:job][:organisations])
+    @job.organisations << [@organisation, current_organisation]
     @job.printer_quotes_open!
     if @job.save
       flash[:notice] = "You have successfully added a new job."
