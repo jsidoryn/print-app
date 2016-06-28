@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+org1 = Organisation.create(title: "Salmon Studio", organisation_type: 1)
+org2 = Organisation.create(title: "Finsbury", organisation_type: 2)
+org3 = Organisation.create(title: "GuideDogs", organisation_type: 3)
+
 job1 = Job.create(title: "Guide Dogs annual report", description: "blah blah blah",
   job_number: "GD001")
 job2 = Job.create(title: "Guide Dogs brochure", description: "blah blah blah",

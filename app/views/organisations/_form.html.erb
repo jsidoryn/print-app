@@ -1,0 +1,11 @@
+<div class="inputs">
+  <%- unless f.error_notification.blank? -%>
+    <%= f.error_notification %>
+  <%- end -%>
+  <%= f.input :title %>
+  <%= f.input :phone %>
+  <%= f.input :organisation_type, collection: Organisation::ORG_TYPES, prompt: "Select one", as: :radio_buttons %>
+</div>
+<div class="actions">
+  <%= f.button :button, "Submit", class: "button" -%> <%= link_to "Cancel", organisations_path %>
+</div>

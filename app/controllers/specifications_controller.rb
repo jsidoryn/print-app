@@ -1,6 +1,7 @@
 class SpecificationsController < ApplicationController
 
-  before_action :find_job, only: [:index, :new, :create]
+  before_action :set_job, only: [:index, :new, :create, :destroy]
+  before_action :set_specification, only: [:edit, :update, :destroy]
   # before_action :check_for_quotes, only: [:destroy]
 
   def index
@@ -22,12 +23,9 @@ class SpecificationsController < ApplicationController
   end
 
   def edit
-    @specification = Specification.find(params[:id])
-    @job = @specification.job
   end
 
   def update
-    @specification = Specification.find(params[:id])
     if @specification.update(specification_params)
       flash[:notice] = "You have successfully edited a spec."
       redirect_to job_specifications_path(@specification.job)
@@ -38,23 +36,24 @@ class SpecificationsController < ApplicationController
   end
 
   def destroy
-    @specification = Specification.find(params[:id])
-    @job = @specification.job
     if @specification.has_quotes?
       redirect_to job_specifications_path(@specification.job),
       notice: "You can't delete the specification until you remove all quotes"
-      return
+    else
+      @specification.destroy
+      flash[:notice] = "You have successfully deleted a spec."
+      redirect_to job_specifications_path(@job)
     end
-
-    @specification.destroy
-    flash[:notice] = "You have successfully deleted a spec."
-    redirect_to job_specifications_path(@job)
   end
 
   private
 
-    def find_job
+    def set_job
       @job = Job.find(params[:job_id])
+    end
+
+    def set_specification
+      @specification = Specification.find(params[:id])
     end
 
     def specification_params
@@ -64,12 +63,6 @@ class SpecificationsController < ApplicationController
 
     def check_for_quotes
       @specification = Specification.find(params[:id])
-      if @specification.quotes.empty?
-        true
-      else
-        false
-        redirect_to job_specifications_path(@specification.job),
-        notice: "You cant delete the specification until you remove all quotes"
-      end
+      @specification.quotes.present?
     end
 end

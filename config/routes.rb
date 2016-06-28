@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
 
-  # get '/styleguide/:action' => 'styleguide'
-  # get '/styleguide' => 'styleguide#index'
-  # resources :uploads do
-  #   post :image, on: :collection
-  # end
-  root 'jobs#index'
+  root 'organisations#index'
+
   resources :jobs, except: :show do
     resources :specifications, shallow: true do
       resources :quotes, shallow: true
     end
     get "close_printer_quotes", on: :member
+  end
+
+  resources :organisations do
+    get "set_current_organisation", on: :member
+    get "logout", on: :collection
   end
 
 

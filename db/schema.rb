@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160513005433) do
+ActiveRecord::Schema.define(version: 20160628033143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "job_orgs", force: :cascade do |t|
+    t.integer  "job_id"
+    t.integer  "organisation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "job_orgs", ["job_id"], name: "index_job_orgs_on_job_id", using: :btree
+  add_index "job_orgs", ["organisation_id"], name: "index_job_orgs_on_organisation_id", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
@@ -23,6 +33,14 @@ ActiveRecord::Schema.define(version: 20160513005433) do
     t.integer  "state",       default: 0
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "organisations", force: :cascade do |t|
+    t.string   "title"
+    t.string   "phone"
+    t.integer  "organisation_type"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "quotes", force: :cascade do |t|

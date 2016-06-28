@@ -113,7 +113,10 @@
                 <h3><%= link_to "PrintFlow", root_path %></h3>
               </div>
               <div class="box-align__right">
-                <%= link_to "Jobs", jobs_path %> | Clients | Printers
+                Org: <%= display_current_organisation %>
+              </div>
+              <div class="box-align__right">
+                <%= link_to "Jobs", jobs_path %> | Clients | Printers |
               </div>
               <!-- <button class="layout--switch header--menu" data-mobile-menu-switch>open navigation</button> -->
             </div>

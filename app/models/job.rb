@@ -1,10 +1,9 @@
 class Job < ActiveRecord::Base
   has_many :specifications, dependent: :destroy
-  validates :title, presence: true
+  has_many :job_orgs
+  has_many :organisations, through: :job_orgs
 
-##
-  # Using enum for state with a hash so no chance of getting messed up when changing
-  # What's the best way to format this? Brackets on new lines?
+  validates :title, presence: true
 
   enum state: {
     printer_quotes_open: 0,
@@ -12,5 +11,5 @@ class Job < ActiveRecord::Base
     client_quotes_open: 2,
     client_quotes_closed: 3
   }
-  
+
 end

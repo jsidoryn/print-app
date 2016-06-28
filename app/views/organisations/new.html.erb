@@ -1,0 +1,7 @@
+<h1>Welcome</h1>
+
+<p>Create a new organisation or choose from an existing one. Maybe?</p>
+
+<%= simple_form_for @organisation do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+<% end %>

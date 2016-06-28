@@ -1,9 +1,11 @@
 class JobsController < ApplicationController
 
+  before_action :authorise_designer, except: [:index]
+  before_action :authorise_not_printer, only: [:index]
   before_action :find_job, only: [:edit, :update, :destroy, :close_printer_quotes]
 
   def index
-    @jobs = Job.all.order(:title)
+    @jobs = Job.all
   end
 
   def new
@@ -12,6 +14,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
+    #@job.organisation = current_organisation
     @job.printer_quotes_open!
     if @job.save
       flash[:notice] = "You have successfully added a new job."
