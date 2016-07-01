@@ -1,7 +1,7 @@
 class Job < ActiveRecord::Base
   has_many :specifications, dependent: :destroy
-  has_many :job_orgs
-  has_many :organisations, through: :job_orgs
+  has_many :job_organisations
+  has_many :organisations, through: :job_organisations
 
   validates :title, presence: true
 

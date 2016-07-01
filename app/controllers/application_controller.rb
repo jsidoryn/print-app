@@ -31,27 +31,6 @@ class ApplicationController < ActionController::Base
    end
  end
 
- def authorise_not_designer
-   unless current_organisation && current_organisation.printer? ||
-     current_organisation && current_organisation.client?
-     redirect_to root_path, alert: "You can't come in since you're a designer"
-   end
- end
-
- def authorise_not_printer
-   unless current_organisation && current_organisation.designer? ||
-     current_organisation && current_organisation.client?
-     redirect_to root_path, alert: "You can't come in since you're a printer"
-   end
- end
-
- def authorise_not_client
-   unless current_organisation && current_organisation.printer? ||
-     current_organisation && current_organisation.designer?
-     redirect_to root_path, alert: "You can't come in since you're a client"
-   end
- end
-
 
   def current_organisation
     @current_org = Organisation.find(session[:organisation_id]) if session[:organisation_id]

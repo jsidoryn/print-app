@@ -1,0 +1,5 @@
+<h1>Edit <%= @job.title %></h1>
+
+<%= simple_form_for [:designer, @job] do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+<% end %>

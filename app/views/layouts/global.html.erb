@@ -116,7 +116,12 @@
                 Org: <%= display_current_organisation %>
               </div>
               <div class="box-align__right">
-                <%= link_to "Jobs", jobs_path %> | Clients | Printers |
+                <% if current_organisation.designer? %>
+                  <%= link_to "Jobs", designer_jobs_path %>
+                <% elsif current_organisation.client? %>
+                  <%= link_to "Jobs", client_jobs_path %>
+                <% end %>
+                | Clients | Printers |
               </div>
               <!-- <button class="layout--switch header--menu" data-mobile-menu-switch>open navigation</button> -->
             </div>

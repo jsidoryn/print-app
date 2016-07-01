@@ -1,0 +1,14 @@
+<div class="inputs">
+  <%- unless f.error_notification.blank? -%>
+    <%= f.error_notification %>
+  <%- end -%>
+  <%= f.input :title %>
+  <%= f.input :job_number %>
+  <%= f.input :description %>
+  <%#= f.association :job_orgs, value_method: :id, label_method: :org_title, as: :check_boxes %>
+  <%= f.association :organisations, value_method: :id %>
+  <%#= f.input :organisations, collection: Organisation.clients %>
+</div>
+<div class="actions">
+  <%= f.button :button, "Submit", class: "button" -%> <%= link_to "Cancel", designer_jobs_path %>
+</div>

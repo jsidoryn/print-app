@@ -1,6 +1,6 @@
 class Organisation < ActiveRecord::Base
-  has_many :job_orgs
-  has_many :jobs, through: :job_orgs
+  has_many :job_organisations
+  has_many :jobs, through: :job_organisations
 
   validates :title, :organisation_type, presence: true
 

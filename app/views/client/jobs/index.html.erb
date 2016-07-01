@@ -1,0 +1,15 @@
+<h1>List all jobs for this designer</h1>
+
+<table class="table table__flush table__bordered">
+  <% @jobs.each do |job| %>
+    <tr>
+      <td><%= link_to job.title, job_specifications_path(job) %></td>
+      <td><%= link_to "Edit", edit_job_path(job) %></td>
+      <td><%= link_to "Delete", job_path(job), method: :delete, data: { confirm: "Are you sure" } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+  <%= link_to "New job", new_job_path, class: "button" %>
+</p>

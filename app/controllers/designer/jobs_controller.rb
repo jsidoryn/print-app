@@ -1,11 +1,10 @@
-class JobsController < ApplicationController
+class Designer::JobsController < ApplicationController
 
-  before_action :authorise_designer, except: [:index]
-  before_action :authorise_not_printer, only: [:index]
+  before_action :authorise_designer
   before_action :find_job, only: [:edit, :update, :destroy, :close_printer_quotes]
 
   def index
-    @jobs = Job.all
+    @jobs = current_organisation.jobs
   end
 
   def new
@@ -15,12 +14,12 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     # why does this work when not in permitted params
-    @organisation = Organisation.find(params[:job][:organisations])
-    @job.organisations << [@organisation, current_organisation]
+    #@client_organisation = Organisation.find(params[:job][:organisations])
+    # @job.organisations << [current_organisation]
     @job.printer_quotes_open!
     if @job.save
       flash[:notice] = "You have successfully added a new job."
-      redirect_to jobs_path
+      redirect_to designer_jobs_path
     else
       render :new
     end
@@ -32,7 +31,7 @@ class JobsController < ApplicationController
   def update
     if @job.update(job_params)
       flash[:notice] = "You have successfully edited a job."
-      redirect_to jobs_path
+      redirect_to designer_jobs_path
     else
       render :end
     end
@@ -41,7 +40,7 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     flash[:notice] = "You have successfully deleted the job"
-    redirect_to jobs_path
+    redirect_to designer_jobs_path
   end
 
   def close_printer_quotes
@@ -57,6 +56,6 @@ class JobsController < ApplicationController
     end
 
     def job_params
-      params.require(:job).permit(:title, :job_number, :description)
+      params.require(:job).permit(:title, :job_number, :description, job_organisation_ids: [])
     end
 end

@@ -9,6 +9,7 @@
 org1 = Organisation.create(title: "Salmon Studio", organisation_type: 1)
 org2 = Organisation.create(title: "Finsbury", organisation_type: 2)
 org3 = Organisation.create(title: "GuideDogs", organisation_type: 3)
+org4 = Organisation.create(title: "Minda", organisation_type: 3)
 
 job1 = Job.create(title: "Guide Dogs annual report", description: "blah blah blah",
   job_number: "GD001")
@@ -16,6 +17,11 @@ job2 = Job.create(title: "Guide Dogs brochure", description: "blah blah blah",
   job_number: "GD002")
 job3 = Job.create(title: "Minda donation letter", description: "blah blah blah",
   job_number: "MI007")
+
+job_org1 = JobOrganisation.create(job_id: 1, organisation_id: 1)
+job_org2 = JobOrganisation.create(job_id: 1, organisation_id: 3)
+job_org3 = JobOrganisation.create(job_id: 3, organisation_id: 2)
+job_org4 = JobOrganisation.create(job_id: 3, organisation_id: 4)
 
 spec1 = job1.specifications.create!(title: "Print in full colour", description:
   "blah blah blah", press_check_required: true, job_due: (Date.current + 20),
